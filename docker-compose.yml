@@ -13,7 +13,10 @@
 
       # The Backend Service
       backend:
-        build: ./backend
+        build:
+          context: ./backend
+          args:
+            APP_ENV: production
         command: >
           sh -c "python manage.py migrate &&
                  gunicorn backend.wsgi:application --bind 0.0.0.0:5002"
@@ -36,7 +39,10 @@
 
       # The Frontend Service
       frontend:
-        build: ./frontend
+        build:
+          context: ./frontend
+          args:
+            VITE_API_BASE_URL: ""
         ports:
           - "${FRONTEND_PORT:-5002}:80"
         depends_on:
