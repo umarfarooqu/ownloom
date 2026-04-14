@@ -3,7 +3,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://127.0.0.1:5002", // The base URL of your Django backend
+  // Use same-origin requests by default so Docker/Nginx deployments work.
+  baseURL: import.meta.env.VITE_API_BASE_URL || "",
 });
 
 api.interceptors.request.use(

@@ -9,6 +9,8 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": "http://localhost:5002", // all /api requests go to Django
+      "/api-token-auth": "http://localhost:5002",
+      "/media": "http://localhost:5002",
     },
   },
 });
