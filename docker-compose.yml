@@ -19,8 +19,8 @@
                  gunicorn backend.wsgi:application --bind 0.0.0.0:5002"
         volumes:
           - media_volume:/app/media
-        ports:
-          - "5002:5002"
+        expose:
+          - "5002"
         environment:
           - SECRET_KEY=${SECRET_KEY}
           - DEBUG=${DEBUG}
@@ -36,7 +36,7 @@
       frontend:
         build: ./frontend
         ports:
-          - "3000:80"
+          - "5002:80"
         depends_on:
           - backend
 
