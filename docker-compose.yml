@@ -44,7 +44,7 @@
           args:
             VITE_API_BASE_URL: ""
         ports:
-          - "5002:80"
+          - "5006:80"
         depends_on:
           - backend
 
