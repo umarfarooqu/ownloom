@@ -1,0 +1,262 @@
+/* frontend/src/components/FileItem.css (FULL REPLACEMENT - FINAL V2) */
+
+.file-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* --- GRID VIEW STYLES --- */
+.file-browser-container.grid .file-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid var(--border-primary);
+    background-color: var(--bg-primary);
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    box-sizing: border-box;
+    /* --- z-index ko default 'auto' par rakhein --- */
+    /* z-index: 1; <-- YEH HATA DEIN */
+}
+
+.file-item:hover {
+    background-color: var(--bg-secondary);
+}
+
+/* --- GRID ITEM STYLES --- */
+.file-browser-container.grid .file-item {
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    box-shadow: 0 1px 2px var(--shadow-color);
+    padding: 15px;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid var(--border-primary);
+}
+.file-browser-container.grid .file-item.is-editing {
+    overflow: visible;
+    z-index: 12;
+}
+.file-item.is-editing .file-name-container {
+    overflow: visible;
+}
+
+.file-browser-container.grid .file-item:hover {
+    box-shadow: 0 4px 8px var(--shadow-color-hover);
+    transform: translateY(-1px);
+    z-index: 2;
+}
+
+.file-item.menu-open {
+    z-index: 11;
+}
+
+.file-browser-container.grid .file-item.menu-open {
+    overflow: visible;
+}
+
+/* --- FIX YAHAN KHATAM HOTA HAI --- */
+
+.file-name {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.file-details-left {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 15px;
+    flex-grow: 1;
+}
+
+.file-browser-container.grid .file-details-left {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    gap: 12px;
+}
+
+/* --- GRID CHECKBOX --- */
+.file-browser-container.grid .item-checkbox {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+    gap: 10px;
+}
+
+.file-browser-container.grid .file-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    flex-grow: 1;
+    gap: 10px;
+}
+
+.file-browser-container.grid .file-info .file-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.file-link {
+    text-decoration: none;
+    padding: 0 5px;
+    color: var(--text-primary);
+    transition: color 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+}
+
+.file-link:hover {
+    color: var(--text-accent);
+}
+
+/* --- FILE ACTIONS (BUTTON & MENU) --- */
+.file-actions {
+    position: relative;
+    /* List view */
+}
+
+.file-browser-container.grid .file-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
+.file-actions .favorite-active svg {
+    color: gold;
+}
+
+.dots-button {
+    padding: 8px;
+    color: var(--text-secondary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+}
+
+.dots-button:hover {
+    background-color: var(--bg-tertiary);
+}
+
+.actions-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-color-hover);
+    padding: 8px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 180px;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary) !important;
+    background: none !important;
+    padding: 8px 12px;
+    margin-left: 0;
+    width: auto;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.actions-dropdown-menu .dropdown-item:hover {
+    background-color: var(--bg-tertiary) !important;
+}
+
+.actions-dropdown-menu .delete-item {
+    color: var(--danger-text) !important;
+}
+
+.actions-dropdown-menu .delete-item:hover {
+    background-color: var(--danger-hover-bg) !important;
+    color: var(--danger-hover-text) !important;
+}
+
+.actions-dropdown-menu .dropdown-divider {
+    height: 1px;
+    background-color: var(--border-primary);
+    margin: 4px 0;
+}
+
+.file-name-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    overflow: hidden;
+}
+
+.file-browser-container.grid .file-name-container {
+    align-items: center;
+    margin-top: auto;
+}
+
+.file-location {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+    text-align: center;
+}
+
+.rename-input {
+    padding: 5px;
+    border: 1px solid var(--text-accent);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border-radius: 4px;
+    outline: none;
+    width: calc(100% - 10px);
+    box-sizing: border-box;
+}
+
+.file-browser-container.grid .rename-input {
+    text-align: center;
+}

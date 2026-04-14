@@ -1,0 +1,120 @@
+/* frontend/src/components/FilePreviewModal.css */
+
+.preview-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    /* Dark transparent background */
+    z-index: 2000;
+    /* Context menu se upar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.2s ease-out;
+}
+
+.preview-container {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+}
+
+.preview-filename {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.preview-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.preview-action-btn,
+.preview-close-btn {
+    background: none;
+    border: none;
+    color: #ddd;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.preview-action-btn:hover,
+.preview-close-btn:hover {
+    color: white;
+}
+
+.preview-body {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 10px;
+}
+
+/* Content Specific Styles */
+.preview-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.preview-iframe {
+    width: 80%;
+    height: 100%;
+    border: none;
+    background-color: #525659;
+    /* PDF Viewer Grey */
+    border-radius: 4px;
+}
+
+.preview-iframe.white-bg {
+    background-color: white;
+    /* Text files ke liye */
+}
+
+.preview-video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.preview-audio {
+    width: 300px;
+}
+
+.preview-unsupported {
+    color: white;
+    text-align: center;
+}
+
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #0d6efd;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}

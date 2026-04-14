@@ -1,0 +1,123 @@
+/* frontend/src/components/CreateFolderModal.css (FULL REPLACEMENT) */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Yeh semi-transparent black hi rahega */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--bg-primary);
+    /* CHANGED */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    color: var(--text-primary);
+    /* ADDED */
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    /* ADDED */
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-primary);
+    /* CHANGED */
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: var(--bg-secondary);
+    /* CHANGED */
+    color: var(--text-primary);
+    /* CHANGED */
+}
+
+.modal-content input:focus {
+    outline: none;
+    border-color: var(--text-accent);
+    box-shadow: 0 0 0 0.2rem var(--shadow-color-focus);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-cancel {
+    background-color: var(--bg-tertiary);
+    /* CHANGED */
+    color: var(--text-primary);
+    /* CHANGED */
+}
+
+.btn-cancel:hover {
+    background-color: var(--border-primary);
+}
+
+.btn-create {
+    background-color: #0d6efd;
+    /* Brand color ko same rakhte hain */
+    color: white;
+}
+
+.btn-create:hover {
+    background-color: #0b5ed7;
+}
+
+/* 9 sep (Share Link Modal) */
+.share-link-container {
+    display: flex;
+    border: 1px solid var(--border-secondary);
+    /* CHANGED */
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.share-link-container input {
+    flex-grow: 1;
+    border: none;
+    padding: 12px;
+    margin-bottom: 0;
+    background-color: var(--bg-tertiary);
+    /* CHANGED */
+    color: var(--text-secondary);
+    /* CHANGED */
+    font-size: 0.9rem;
+}
+
+.share-link-container input:focus {
+    outline: none;
+}
+
+.share-link-container button {
+    flex-shrink: 0;
+    padding: 0 20px;
+    border-radius: 0;
+}

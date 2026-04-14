@@ -1,0 +1,171 @@
+/* frontend/src/components/Sidebar.css (FULL REPLACEMENT) */
+
+.sidebar {
+    width: 250px;
+    background-color: var(--bg-primary);
+    /* CHANGED from secondary */
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-primary);
+    transition: width 0.2s, background-color 0.2s, border-color 0.2s;
+}
+
+/* --- New Button & Dropdown --- */
+.sidebar-new-button {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.sidebar-new-button button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 130px;
+    padding: 10px 24px;
+    /* Check padding */
+    border-radius: 24px;
+    border: 1px solid var(--border-secondary);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 1px 2px 0 var(--shadow-color), 0 1px 3px 1px var(--shadow-color);
+    transition: box-shadow 0.2s ease, background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.sidebar-new-button button:hover {
+    box-shadow: 0 1px 3px 0 var(--shadow-color), 0 4px 8px 3px var(--shadow-color-hover);
+}
+
+.new-dropdown-menu {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background-color: var(--bg-primary);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px var(--shadow-color-hover);
+    padding: 8px 0;
+    width: 150px;
+    z-index: 10;
+    border: 1px solid var(--border-primary);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 16px;
+    margin-left: 10px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.dropdown-item:hover {
+    background-color: var(--bg-tertiary);
+}
+
+.dropdown-divider {
+    height: 1px;
+    background-color: var(--border-primary);
+    margin: 8px 0;
+}
+
+/* --- Navigation --- */
+.sidebar-nav {
+    margin-top: 16px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-nav .nav-item:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.sidebar-nav .nav-item.active {
+    background-color: var(--bg-accent);
+    color: var(--text-accent);
+    font-weight: 700;
+}
+
+/* --- Storage Section --- */
+.sidebar-storage {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-primary);
+    transition: border-color 0.2s;
+}
+
+.sidebar-storage p {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.storage-bar-container {
+    width: 100%;
+    height: 6px;
+    background-color: var(--bg-tertiary);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+    transition: background-color 0.2s;
+}
+
+.storage-bar {
+    height: 100%;
+    background-color: var(--text-accent);
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out, background-color 0.2s;
+}
+
+.sidebar-storage span {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: -30px -15px -12px -17px;
+    color: var(--text-primary);
+}
+
+.sidebar-logo img {
+    height: 120px;
+    width: auto;
+}
+
+.sidebar-logo .span .hlo {
+    font-size: 1.5rem;
+}
